@@ -1,0 +1,19 @@
+{
+  "name": "biglight-george",
+  "version": "1.0.0",
+  "description": "Coding Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awaritefe/Biglight-George.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/awaritefe/Biglight-George/issues"
+  },
+  "homepage": "https://github.com/awaritefe/Biglight-George#readme"
+}
