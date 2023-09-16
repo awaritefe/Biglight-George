@@ -1,5 +1,5 @@
-$darkRed: rgb(139, 35, 35);
-
-h1 {
-  color: $darkRed;
-}
+@import "scss/mixins.scss";
+@import "scss/settings.scss";
+@import "scss/general.scss";
+@import "scss/header.scss";
+@import "scss/typography.scss";

@@ -1,0 +1,22 @@
+.header {
+  background-color: $black;
+  &-inner {
+    padding: $gap;
+    &-content {
+      display: flex;
+      gap: $gap;
+      margin: 0;
+      list-style: none;
+      padding: 0;
+    }
+  }
+  &-link {
+    a {
+      color: $gold;
+      text-decoration: none;
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}

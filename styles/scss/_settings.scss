@@ -1,0 +1,18 @@
+$page-width: 80rem;
+
+$breakpoints: (
+  desktop: 1024px,
+);
+
+$gap: 1rem;
+
+%container {
+  max-width: $page-width;
+  padding: 0 $gap;
+  position: relative;
+  width: 100%;
+
+  @include break(desktop) {
+    padding: 0 $gap * 2;
+  }
+}

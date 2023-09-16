@@ -1,0 +1,14 @@
+// Body setting
+body {
+  margin: 0 auto;
+}
+
+// Container
+.container {
+  @extend %container;
+}
+
+// Colors
+$gold: #bfa968;
+$black: #000000;
+$white: #ffffff;
