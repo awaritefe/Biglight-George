@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <ul>
+          <% portfolioData.forEach(row => { %>
+          <li><%= row.join(' | ') %></li>
+          <% }); %>
+        </ul>
+      </div>
+    </header>
+    
+
+    <div class="hero">
+      <div class="container">
+        <h1><%= portfolioData[3][0] %></h1>
+        <p><%- portfolioData[3][1] %></p>
+      </div>
+    </div>
+
+    <p>Data from Google Sheets:</p>
+    <ul>
+      <% portfolioData.forEach(row => { %>
+      <li><%= row.join(' | ') %></li>
+      <% }); %>
+    </ul>
+  </body>
+</html>
