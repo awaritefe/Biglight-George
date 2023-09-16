@@ -1,22 +1,15 @@
 const express = require("express");
 const { google } = require("googleapis");
 const app = express(); // run the function to create a express app
+const path = require("path");
+
+app.use(express.static(path.join(__dirname, "public")));
+
 const port = 4000;
 
 app.set("view engine", "ejs");
 
-app.set("view engine", "ejs");
-
-// app.get("/", async (req, res) => {
-//   res.render("index");
-// });
-// app.get("/portfolio", async (req, res) => {
-//   res.render("portfolio");
-// });
-// app.get("/about", async (req, res) => {
-//   res.render("about");
-// });
-
+// HOMEPAGE
 app.get("/", async (req, res) => {
   const auth = new google.auth.GoogleAuth({
     keyFile: "credentials.json",
@@ -58,6 +51,7 @@ app.get("/", async (req, res) => {
   res.render("index", { homepageData: homepage.data.values });
 });
 
+//PORTFOLIO
 app.get("/portfolio", async (req, res) => {
   const auth = new google.auth.GoogleAuth({
     keyFile: "credentials.json",
@@ -99,6 +93,7 @@ app.get("/portfolio", async (req, res) => {
   res.render("portfolio", { portfolioData: portfolio.data.values });
 });
 
+//ABOUT
 app.get("/about", async (req, res) => {
   const auth = new google.auth.GoogleAuth({
     keyFile: "credentials.json",
