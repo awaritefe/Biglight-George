@@ -7,12 +7,37 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Welcome to the About</h1>
-    <p>Data from Google Sheets:</p>
-    <ul>
-      <% aboutData.forEach(row => { %>
-      <li><%= row.join(' | ') %></li>
-      <% }); %>
-    </ul>
+    <header class="header">
+      <nav>
+        <ul>
+          <li><a href="#">Hompage</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <div class="container">
+        <h1><%= aboutData[3][0] %></h1>
+        <p><%- aboutData[3][1] %></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image">
+        <picture>
+          <img src="<%= aboutData[3][3] %>" alt="Sofa display" />
+        </picture>
+      </div>
+      <div class="card-content">
+        <h2><%= aboutData[3][4] %></h2>
+        <p><%= aboutData[3][5] %></p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>2020 my Portfolio</p>
+    </footer>
   </body>
 </html>
