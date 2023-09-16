@@ -5,18 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <header class="header">
-      <nav>
-        <ul>
-          <li><a href="#">Hompage</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </nav>
-    </header>
+    <%- include('components/header.ejs', {data: 'data'}); %>
 
     <div class="hero">
       <div class="container">
@@ -36,9 +28,18 @@
         <p><%= aboutData[3][5] %></p>
       </div>
     </div>
+    <div class="card">
+      <div class="card-image">
+        <picture>
+          <img src="<%= aboutData[4][3] %>" alt="Sofa display" />
+        </picture>
+      </div>
+      <div class="card-content">
+        <h2><%= aboutData[4][4] %></h2>
+        <p><%= aboutData[4][5] %></p>
+      </div>
+    </div>
 
-    <footer class="footer">
-      <p>2020 my Portfolio</p>
-    </footer>
+    <%- include('components/footer.ejs', {data: 'data'}); %>
   </body>
 </html>

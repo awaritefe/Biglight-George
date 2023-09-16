@@ -8,15 +8,7 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <header class="header">
-      <nav>
-        <ul>
-          <li><a href="#">Hompage</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </nav>
-    </header>
+    <%- include('components/header.ejs', {data: 'data'}); %>
 
     <div class="hero">
       <div class="container">
@@ -32,13 +24,11 @@
 
     <div class="navigation-buttons">
       <div>
-        <button><a href="#"></a></button>
-        <button><a href="#"></a></button>
+        <button><a href="#">Check out my Portfolio</a></button>
+        <button><a href="#">Read more about me</a></button>
       </div>
     </div>
 
-    <footer class="footer">
-      <p>2020 my Portfolio</p>
-    </footer>
+    <%- include('components/footer.ejs', {data: 'data'}); %>
   </body>
 </html>
