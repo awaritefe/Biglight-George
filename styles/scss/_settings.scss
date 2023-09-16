@@ -1,18 +1,28 @@
+// Used for container
 $page-width: 80rem;
 
+// Used in Mixin for page breakpoints
 $breakpoints: (
   desktop: 1024px,
 );
 
+// Spacing
 $gap: 1rem;
 
 %container {
   max-width: $page-width;
   padding: 0 $gap;
   position: relative;
+  margin: 0 auto;
   width: 100%;
 
   @include break(desktop) {
     padding: 0 $gap * 2;
   }
 }
+
+// Font weight
+$light: 300;
+$normal: 400;
+$book: 500;
+$bold: 700;

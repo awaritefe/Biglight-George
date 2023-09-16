@@ -1,0 +1,22 @@
+.hero {
+  &-inner {
+    @extend %container;
+    margin: $gap * 2.5 $gap;
+    text-align: center;
+    width: auto;
+
+    @include break(desktop) {
+      margin: $gap * 3.5 $gap;
+    }
+  }
+  &-title {
+    color: $gold;
+    font-weight: $book;
+  }
+  &-summary {
+    @extend %h4;
+    font-weight: $normal;
+    line-height: 1.2;
+    margin-top: $gap * 2.5;
+  }
+}

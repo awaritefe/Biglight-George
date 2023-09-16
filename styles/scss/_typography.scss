@@ -1,41 +1,51 @@
 p,
 a {
-  font-size: 1.125rem;
+  font-size: 1rem;
+  font-family: "Poppins";
+  margin: unset;
 }
 
 %h1 {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: $bold;
   font-family: "Poppins";
+  margin: unset;
+
+  @include break(desktop) {
+    font-size: 2.125rem;
+  }
 }
 
 %h2 {
   font-size: 1.125rem;
-  font-weight: bold;
+  font-weight: $bold;
+  font-family: "Poppins";
+  margin: unset;
+
+  @include break(desktop) {
+    font-size: 1.875rem;
+  }
 }
 
 %h3 {
   font-size: 1.125rem;
-  font-weight: bold;
+  font-weight: $bold;
+  font-family: "Poppins";
+  margin: unset;
+
+  @include break(desktop) {
+    font-size: 1.5rem;
+  }
 }
 
-@media only screen and (min-width: 768px) {
-  %h1 {
-    font-size: 2.125rem;
-  }
-  %h2 {
-    font-size: 1.5rem;
-  }
-  %h3 {
+%h4 {
+  font-size: 1.125rem;
+  font-weight: $book;
+  font-family: "Poppins";
+  margin: unset;
+
+  @include break(desktop) {
     font-size: 1.25rem;
-  }
-}
-@media only screen and (min-width: 992px) {
-  %h2 {
-    font-size: 1.875rem;
-  }
-  %h3 {
-    font-size: 1.5rem;
   }
 }
 
@@ -48,5 +58,9 @@ h2 {
 }
 
 h3 {
+  @extend %h3;
+}
+
+h4 {
   @extend %h3;
 }

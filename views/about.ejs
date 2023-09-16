@@ -7,9 +7,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -17,32 +18,50 @@
     <%- include('components/header.ejs', {data: 'data'}); %>
 
     <div class="hero">
-      <div class="container">
-        <h1><%= aboutData[3][0] %></h1>
-        <p><%- aboutData[3][1] %></p>
+      <div class="hero-inner">
+        <h1 class="hero-title"><%= aboutData[3][0] %></h1>
+        <p class="hero-summary"><%- aboutData[3][1] %></p>
       </div>
     </div>
 
     <div class="card">
       <div class="card-image">
         <picture>
-          <img src="<%= aboutData[3][3] %>" alt="Sofa display" />
+          <img
+            class="mobile"
+            src="<%= aboutData[3][2] %>"
+            alt="Hero image mobile version"
+          />
+          <img
+            class="desktop"
+            src="<%= aboutData[3][3] %>"
+            alt="Sofa display"
+          />
         </picture>
       </div>
       <div class="card-content">
-        <h2><%= aboutData[3][4] %></h2>
-        <p><%= aboutData[3][5] %></p>
+        <h2 class="card-title"><%= aboutData[3][4] %></h2>
+        <p class="card-summary"><%= aboutData[3][5] %></p>
       </div>
     </div>
     <div class="card">
       <div class="card-image">
         <picture>
-          <img src="<%= aboutData[4][3] %>" alt="Sofa display" />
+          <img
+            class="mobile"
+            src="<%= aboutData[4][2] %>"
+            alt="Hero image mobile version"
+          />
+          <img
+            class="desktop"
+            src="<%= aboutData[4][3] %>"
+            alt="Sofa display"
+          />
         </picture>
       </div>
       <div class="card-content">
-        <h2><%= aboutData[4][4] %></h2>
-        <p><%= aboutData[4][5] %></p>
+        <h2 class="card-title"><%= aboutData[4][4] %></h2>
+        <p class="card-summary"><%= aboutData[4][5] %></p>
       </div>
     </div>
 

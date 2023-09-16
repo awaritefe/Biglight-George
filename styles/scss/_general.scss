@@ -10,5 +10,20 @@ body {
 
 // Colors
 $gold: #bfa968;
+$bronze: #dcd1b4;
+$grey: #ededed;
 $black: #000000;
 $white: #ffffff;
+
+// Mobile vs Destop image view
+.mobile {
+  @include break(desktop) {
+    display: none;
+  }
+}
+.desktop {
+  display: none;
+  @include break(desktop) {
+    display: block;
+  }
+}

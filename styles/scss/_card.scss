@@ -1,0 +1,20 @@
+.card {
+  background-color: $bronze;
+  margin-bottom: $gap * 3;
+  &-image {
+    picture {
+      display: flex;
+      width: 100%;
+      img {
+        object-fit: contain;
+        width: 100%;
+      }
+    }
+  }
+  &-content {
+    padding: $gap $gap $gap * 2 $gap;
+  }
+  &-title {
+    @extend %h4;
+  }
+}

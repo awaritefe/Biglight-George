@@ -1,17 +1,91 @@
-.container {
+/* ++++++++++
++++ STYLE +++
+++++++++++ */
+.buttons-inner, .hero-inner, .container {
   max-width: 80rem;
   padding: 0 1rem;
   position: relative;
+  margin: 0 auto;
   width: 100%;
 }
 @media screen and (min-width: 1024px) {
-  .container {
+  .buttons-inner, .hero-inner, .container {
     padding: 0 2rem;
   }
 }
 
 body {
   margin: 0 auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .mobile {
+    display: none;
+  }
+}
+
+.desktop {
+  display: none;
+}
+@media screen and (min-width: 1024px) {
+  .desktop {
+    display: block;
+  }
+}
+
+p,
+a {
+  font-size: 1rem;
+  font-family: "Poppins";
+  margin: unset;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: "Poppins";
+  margin: unset;
+}
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 2.125rem;
+  }
+}
+
+h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  font-family: "Poppins";
+  margin: unset;
+}
+@media screen and (min-width: 1024px) {
+  h2 {
+    font-size: 1.875rem;
+  }
+}
+
+h4, h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  font-family: "Poppins";
+  margin: unset;
+}
+@media screen and (min-width: 1024px) {
+  h4, h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.card-title, .media-title, .hero-summary {
+  font-size: 1.125rem;
+  font-weight: 500;
+  font-family: "Poppins";
+  margin: unset;
+}
+@media screen and (min-width: 1024px) {
+  .card-title, .media-title, .hero-summary {
+    font-size: 1.25rem;
+  }
 }
 
 .header {
@@ -35,43 +109,126 @@ body {
   color: #ffffff;
 }
 
-p,
-a {
-  font-size: 1.125rem;
+.hero-inner {
+  margin: 2.5rem 1rem;
+  text-align: center;
+  width: auto;
+}
+@media screen and (min-width: 1024px) {
+  .hero-inner {
+    margin: 3.5rem 1rem;
+  }
+}
+.hero-title {
+  color: #bfa968;
+  font-weight: 500;
+}
+.hero-summary {
+  font-weight: 400;
+  line-height: 1.2;
+  margin-top: 2.5rem;
 }
 
-h1 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  font-family: "Poppins";
+.media {
+  margin: 2rem 0;
+}
+.media-content {
+  align-self: center;
+  text-align: center;
+  padding: 1.5rem;
+}
+@media screen and (min-width: 1024px) {
+  .media-content {
+    padding: 1rem;
+  }
+}
+.media-inner {
+  background-color: #ededed;
+}
+@media screen and (min-width: 1024px) {
+  .media-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.media-image {
+  display: block;
+  grid-column: 1/3;
+}
+.media-image picture {
+  display: flex;
+}
+.media-image picture img {
+  object-fit: contain;
+  width: 100%;
+}
+.media-title mark {
+  padding: 5px;
+  background-color: #000000;
+  color: #ffffff;
+}
+.media-summary {
+  margin-top: 1rem;
 }
 
-h2 {
-  font-size: 1.125rem;
-  font-weight: bold;
+.card {
+  background-color: #dcd1b4;
+  margin-bottom: 3rem;
+}
+.card-image picture {
+  display: flex;
+  width: 100%;
+}
+.card-image picture img {
+  object-fit: contain;
+  width: 100%;
+}
+.card-content {
+  padding: 1rem 1rem 2rem 1rem;
+}
+.button {
+  border-radius: 100vmax;
+  display: inline-block;
+  padding: 0.5rem 1.8rem;
+  width: auto;
 }
 
-h3 {
-  font-size: 1.125rem;
-  font-weight: bold;
+button {
+  border: none;
+}
+button a {
+  text-decoration: none;
+  color: #000000;
 }
 
-@media only screen and (min-width: 768px) {
-  h1 {
-    font-size: 2.125rem;
-  }
-  h2 {
-    font-size: 1.5rem;
-  }
-  h3 {
-    font-size: 1.25rem;
+.button {
+  background-color: #bfa968;
+  border: 1.5px solid #bfa968;
+}
+.button:hover {
+  background-color: #ffffff;
+}
+.button:hover a {
+  color: #bfa968;
+}
+
+.buttons {
+  margin: 1.5rem;
+}
+.buttons-inner {
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+  width: auto;
+}
+@media screen and (min-width: 1024px) {
+  .buttons-inner {
+    display: flex;
+    gap: 2rem;
   }
 }
-@media only screen and (min-width: 992px) {
-  h2 {
-    font-size: 1.875rem;
-  }
-  h3 {
-    font-size: 1.5rem;
-  }
+
+.footer {
+  margin: 3rem auto 1.5rem;
+  text-align: center;
 }

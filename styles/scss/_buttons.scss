@@ -1,0 +1,41 @@
+%button {
+  border-radius: 100vmax;
+  display: inline-block;
+  padding: $gap / 2 $gap * 1.8;
+  width: auto;
+}
+
+button {
+  border: none;
+  a {
+    text-decoration: none;
+    color: $black;
+  }
+}
+
+.button {
+  @extend %button;
+  background-color: $gold;
+  border: 1.5px solid $gold;
+  &:hover {
+    background-color: $white;
+    a {
+      color: $gold;
+    }
+  }
+}
+
+.buttons {
+  margin: $gap * 1.5;
+  &-inner {
+    @extend %container;
+    display: grid;
+    gap: $gap;
+    justify-content: center;
+    width: auto;
+    @include break(desktop) {
+      display: flex;
+      gap: $gap * 2;
+    }
+  }
+}

@@ -1,5 +1,18 @@
+/* ++++++++++
++++ STYLE +++
+++++++++++ */
+
+//Helpers
+
 @import "scss/mixins.scss";
 @import "scss/settings.scss";
 @import "scss/general.scss";
-@import "scss/header.scss";
 @import "scss/typography.scss";
+
+//Components
+@import "scss/header.scss";
+@import "scss/hero.scss";
+@import "scss/media.scss";
+@import "scss/card.scss";
+@import "scss/buttons.scss";
+@import "scss/footer.scss";
