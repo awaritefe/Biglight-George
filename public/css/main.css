@@ -34,6 +34,16 @@ body {
   }
 }
 
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 p,
 a {
   font-size: 1rem;
@@ -146,17 +156,74 @@ h4, h3 {
   src: url("/webfonts/poppins-v20-latin/poppins-v20-latin-800.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 .header {
-  background-color: #000000;
+  background-color: hsla(0, 0%, 0%, 0.9);
+  position: fixed;
+  inset: 0 50% 0 0;
+  transform: translateX(-100%);
+  transition: transform 350ms ease-out;
+  z-index: 1;
+}
+@supports (backdrop-filter: blur(1rem)) {
+  .header {
+    background-color: hsla(0, 0%, 0%, 0.5);
+    backdrop-filter: blur(1rem);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .header {
+    background-color: #000000;
+    backdrop-filter: none;
+    position: relative;
+    transform: none;
+  }
+}
+.header-mobile-toggle {
+  position: absolute;
+  background-color: transparent;
+  padding: 0;
+  width: 1rem;
+  aspect-ratio: 1;
+  top: 2rem;
+  left: 1rem;
+  z-index: 999;
+}
+@media screen and (min-width: 1024px) {
+  .header-mobile-toggle {
+    display: none;
+  }
+}
+.header-mobile-toggle .fa-bars {
+  background-color: hsla(0, 0%, 0%, 0.1);
+  backdrop-filter: blur(1rem);
+  color: #bfa968;
+  font-size: 1.2rem;
+  padding: 8px;
+  border-radius: 100vmax;
+}
+.header-mobile-toggle .fa-bars:hover {
+  color: #ffffff;
 }
 .header-inner {
-  padding: 1rem;
+  padding: min(30vh, 10rem) 1rem;
+}
+@media screen and (min-width: 1024px) {
+  .header-inner {
+    padding: 1rem;
+  }
 }
 .header-inner-content {
-  display: flex;
-  gap: 1rem;
+  display: grid;
+  gap: 2rem;
   margin: 0;
   list-style: none;
   padding: 0;
+  z-index: 99;
+}
+@media screen and (min-width: 1024px) {
+  .header-inner-content {
+    display: flex;
+    gap: 1rem;
+  }
 }
 .header-link a {
   color: #bfa968;
@@ -166,8 +233,17 @@ h4, h3 {
   color: #ffffff;
 }
 
+.header[data-visible=true] {
+  transform: translateX(0%);
+}
+@media screen and (min-width: 1024px) {
+  .header[data-visible=true] {
+    transform: none;
+  }
+}
+
 .hero-inner {
-  margin: 2.5rem 1rem;
+  margin: 5.5rem 1rem 2.5rem;
   text-align: center;
   width: auto;
 }

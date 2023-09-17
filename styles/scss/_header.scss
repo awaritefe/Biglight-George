@@ -1,15 +1,68 @@
 .header {
-  background-color: $black;
+  background-color: hsl(0 0% 0% / 0.9);
+  position: fixed;
+  inset: 0 50% 0 0;
+  transform: translateX(-100%);
+  transition: transform 350ms ease-out;
+  z-index: 1;
+
+  @supports (backdrop-filter: blur(1rem)) {
+    background-color: hsl(0 0% 0% / 0.5);
+    backdrop-filter: blur($gap);
+  }
+
+  @include break(desktop) {
+    background-color: $black;
+    backdrop-filter: none;
+    position: relative;
+    transform: none;
+  }
+  &-mobile-toggle {
+    position: absolute;
+    background-color: transparent;
+    padding: 0;
+    width: $gap;
+    aspect-ratio: 1;
+    top: $gap * 2;
+    left: $gap;
+    z-index: 999;
+
+    @include break(desktop) {
+      display: none;
+    }
+    .fa-bars {
+      background-color: hsl(0 0% 0% / 0.1);
+      backdrop-filter: blur($gap);
+      color: $gold;
+      font-size: $gap * 1.2;
+      padding: 8px;
+      border-radius: 100vmax;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
   &-inner {
-    padding: $gap;
+    padding: min(30vh, 10rem) $gap;
+    @include break(desktop) {
+      padding: $gap;
+    }
+
     &-content {
-      display: flex;
-      gap: $gap;
+      display: grid;
+      gap: $gap * 2;
       margin: 0;
       list-style: none;
       padding: 0;
+      z-index: 99;
+      @include break(desktop) {
+        display: flex;
+        gap: $gap;
+      }
     }
   }
+
   &-link {
     a {
       color: $gold;
@@ -18,5 +71,11 @@
         color: $white;
       }
     }
+  }
+}
+.header[data-visible="true"] {
+  transform: translateX(0%);
+  @include break(desktop) {
+    transform: none;
   }
 }

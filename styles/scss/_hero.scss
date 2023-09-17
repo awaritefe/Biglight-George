@@ -1,7 +1,7 @@
 .hero {
   &-inner {
     @extend %container;
-    margin: $gap * 2.5 $gap;
+    margin: $gap * 5.5 $gap $gap * 2.5;
     text-align: center;
     width: auto;
 
