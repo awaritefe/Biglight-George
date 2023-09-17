@@ -5,6 +5,12 @@ const path = require("path");
 
 app.use(express.static(path.join(__dirname, "public")));
 
+// Serve fonts from the 'styles' directory
+app.use(
+  "/fonts",
+  express.static(path.join(__dirname, "styles/poppins-v20-latin"))
+);
+
 const port = 4000;
 
 app.set("view engine", "ejs");

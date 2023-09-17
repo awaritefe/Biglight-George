@@ -1,6 +1,10 @@
+// Typography
+$font-body: "Poppins", "Trebuchet MS", "Lucida Grande", Tahoma, sans-serif;
+
 // Body setting
 body {
   margin: 0 auto;
+  font-family: $font-body;
 }
 
 // Container

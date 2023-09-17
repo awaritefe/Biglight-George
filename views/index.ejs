@@ -36,18 +36,13 @@
 
     <div class="buttons">
       <div class="buttons-inner">
-        <button class="button"><a href="#">Check out my Portfolio</a></button>
-        <button class="button"><a href="#">Read more about me</a></button>
+        <button class="button">
+          <a href="/portfolio">Check out my Portfolio</a>
+        </button>
+        <button class="button"><a href="/about">Read more about me</a></button>
       </div>
     </div>
 
     <%- include('components/footer.ejs', {data: 'data'}); %>
   </body>
 </html>
-
-<!-- <p>Data from Google Sheets:</p>
-<ul>
-  <% portfolioData.forEach(row => { %>
-  <li><%= row.join(' | ') %></li>
-  <% }); %>
-</ul> -->
