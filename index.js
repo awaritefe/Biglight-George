@@ -6,10 +6,10 @@ const path = require("path");
 app.use(express.static(path.join(__dirname, "public")));
 
 // Serve fonts from the 'styles' directory
-app.use(
-  "/fonts",
-  express.static(path.join(__dirname, "styles/poppins-v20-latin"))
-);
+// app.use(
+//   "/fonts",
+//   express.static(path.join(__dirname, "styles/poppins-v20-latin"))
+// );
 
 const port = 4000;
 
@@ -143,4 +143,9 @@ app.get("/about", async (req, res) => {
 
 app.listen(port, (req, res) => {
   console.log(`Example app listening on port ${port}`);
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
 });

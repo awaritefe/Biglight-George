@@ -9,10 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=block"
       rel="stylesheet"
     />
-  </head>
+   
+    <script src="/js/lazy-load.js"></script>
   <body>
     <%- include('components/header.ejs', {data: 'data'}); %>
 
@@ -30,12 +31,12 @@
         <div class="media-image">
           <picture>
             <img
-              class="mobile"
+              class="mobile lazy"
               src="<%= portfolioData[3][2] %>"
               alt="Hero image mobile version"
             />
             <img
-              class="desktop"
+              class="desktop lazy"
               src="<%= portfolioData[3][3] %>"
               alt="Sofa display"
             />
@@ -53,12 +54,12 @@
         <div class="media-image">
           <picture>
             <img
-              class="mobile"
+              class="mobile lazy"
               src="<%= portfolioData[4][2] %>"
               alt="Hero image mobile version"
             />
             <img
-              class="desktop"
+              class="desktop lazy"
               src="<%= portfolioData[4][3] %>"
               alt="Bed display"
             />
@@ -76,12 +77,12 @@
         <div class="media-image">
           <picture>
             <img
-              class="mobile"
+              class="mobile lazy"
               src="<%= portfolioData[5][2] %>"
               alt="Hero image mobile version"
             />
             <img
-              class="desktop"
+              class="desktop lazy"
               src="<%= portfolioData[5][3] %>"
               alt="Table display"
             />

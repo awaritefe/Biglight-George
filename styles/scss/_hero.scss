@@ -6,7 +6,7 @@
     width: auto;
 
     @include break(desktop) {
-      margin: $gap * 3.5 $gap;
+      margin: $gap * 3.5 auto;
     }
   }
   &-title {
