@@ -1,151 +1,55 @@
 const express = require("express");
 const { google } = require("googleapis");
-const app = express(); // run the function to create a express app
+const app = express();
 const path = require("path");
-
-app.use(express.static(path.join(__dirname, "public")));
-
-// Serve fonts from the 'styles' directory
-// app.use(
-//   "/fonts",
-//   express.static(path.join(__dirname, "styles/poppins-v20-latin"))
-// );
 
 const port = 4000;
 
+app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 
-// HOMEPAGE
+const auth = new google.auth.GoogleAuth({
+  keyFile: "credentials.json",
+  scopes: "https://www.googleapis.com/auth/spreadsheets",
+});
+
+const client = async () => {
+  return await auth.getClient();
+};
+
+const googleSheets = google.sheets({ version: "v4" });
+
+// ID to specific Google Sheet
+const spreadsheetId = "1upiscciyDs2WiD0ed7YHx57ckJ8ALvuaC4krTcI2pkE";
+
+//Refactored code below to DRY
+// Get data from Google sheet
+const getSheetData = async (range) => {
+  const authClient = await client();
+  const data = await googleSheets.spreadsheets.values.get({
+    auth: authClient,
+    spreadsheetId,
+    range,
+  });
+  return data.data.values;
+};
+
+// Routes pulling Google Sheets data
 app.get("/", async (req, res) => {
-  const auth = new google.auth.GoogleAuth({
-    keyFile: "credentials.json",
-    scopes: "https://www.googleapis.com/auth/spreadsheets",
-  });
-
-  // Create client instance for auth
-  const client = await auth.getClient();
-
-  // Instance of Google sheets API
-  const googleSheets = google.sheets({ version: "v4", auth: client });
-
-  const spreadsheetId = "1upiscciyDs2WiD0ed7YHx57ckJ8ALvuaC4krTcI2pkE";
-
-  // Get metaData about spreedsheet
-  const metaData = await googleSheets.spreadsheets.get({
-    auth,
-    spreadsheetId,
-  });
-
-  // Read row from Spreadsheet
-  const homepage = await googleSheets.spreadsheets.values.get({
-    auth,
-    spreadsheetId,
-    range: "Homepage",
-  });
-  const portfolio = await googleSheets.spreadsheets.values.get({
-    auth,
-    spreadsheetId,
-    range: "Portfolio Page",
-  });
-  const about = await googleSheets.spreadsheets.values.get({
-    auth,
-    spreadsheetId,
-    range: "About Page",
-  });
-
-  // Render the homepage template with the Google Sheets data
-  res.render("index", { homepageData: homepage.data.values });
+  const homepageData = await getSheetData("Homepage");
+  res.render("index", { homepageData });
 });
 
-//PORTFOLIO
 app.get("/portfolio", async (req, res) => {
-  const auth = new google.auth.GoogleAuth({
-    keyFile: "credentials.json",
-    scopes: "https://www.googleapis.com/auth/spreadsheets",
-  });
-
-  // Create client instance for auth
-  const client = await auth.getClient();
-
-  // Instance of Google sheets API
-  const googleSheets = google.sheets({ version: "v4", auth: client });
-
-  const spreadsheetId = "1upiscciyDs2WiD0ed7YHx57ckJ8ALvuaC4krTcI2pkE";
-
-  // Get metaData about spreedsheet
-  const metaData = await googleSheets.spreadsheets.get({
-    auth,
-    spreadsheetId,
-  });
-
-  // Read row from Spreadsheet
-  const homepage = await googleSheets.spreadsheets.values.get({
-    auth,
-    spreadsheetId,
-    range: "Homepage",
-  });
-  const portfolio = await googleSheets.spreadsheets.values.get({
-    auth,
-    spreadsheetId,
-    range: "Portfolio Page",
-  });
-  const about = await googleSheets.spreadsheets.values.get({
-    auth,
-    spreadsheetId,
-    range: "About Page",
-  });
-
-  // Render the portfolio template with the Google Sheets data
-  res.render("portfolio", { portfolioData: portfolio.data.values });
+  const portfolioData = await getSheetData("Portfolio Page");
+  res.render("portfolio", { portfolioData });
 });
 
-//ABOUT
 app.get("/about", async (req, res) => {
-  const auth = new google.auth.GoogleAuth({
-    keyFile: "credentials.json",
-    scopes: "https://www.googleapis.com/auth/spreadsheets",
-  });
-
-  // Create client instance for auth
-  const client = await auth.getClient();
-
-  // Instance of Google sheets API
-  const googleSheets = google.sheets({ version: "v4", auth: client });
-
-  const spreadsheetId = "1upiscciyDs2WiD0ed7YHx57ckJ8ALvuaC4krTcI2pkE";
-
-  // Get metaData about spreedsheet
-  const metaData = await googleSheets.spreadsheets.get({
-    auth,
-    spreadsheetId,
-  });
-
-  // Read row from Spreadsheet
-  const homepage = await googleSheets.spreadsheets.values.get({
-    auth,
-    spreadsheetId,
-    range: "Homepage",
-  });
-  const portfolio = await googleSheets.spreadsheets.values.get({
-    auth,
-    spreadsheetId,
-    range: "Portfolio Page",
-  });
-  const about = await googleSheets.spreadsheets.values.get({
-    auth,
-    spreadsheetId,
-    range: "About Page",
-  });
-
-  // Render the portfolio template with the Google Sheets data
-  res.render("about", { aboutData: about.data.values });
+  const aboutData = await getSheetData("About Page");
+  res.render("about", { aboutData });
 });
 
-app.listen(port, (req, res) => {
+app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
-});
-
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Something broke!");
 });
