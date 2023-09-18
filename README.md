@@ -4,6 +4,19 @@ A node.js and Express.js project, Built and configured with NPM init, package.js
 
 Data being dynmacally managed with the Google Developer Console pulling though the data from a Google Sheet.
 
+## Branch amends
+
+Made index.js routes DRY.
+
+```bash
+  git fetch
+```
+
+```bash
+  git checkout improvements
+```
+
+
 ## GoogleSheet
 
 https://docs.google.com/spreadsheets/d/1upiscciyDs2WiD0ed7YHx57ckJ8ALvuaC4krTcI2pkE/edit?usp=sharing
